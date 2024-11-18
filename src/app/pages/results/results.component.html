@@ -1,0 +1,101 @@
+<div class="results col-12">
+  <p *ngIf="isLoading">Recherche en cours...</p>
+  
+  <p *ngIf="!isLoading && searchCompleted && !hasResults">
+    Aucun résultat trouvé.
+  </p>
+  <ng-container *ngIf="!isLoading && hasResults">
+
+    <div class="results-header">
+      <h2 class="results-title text-lg">
+        {{ resultCount }} Résultat(s) sur {{ totalResults }}
+      </h2>
+      
+      <div class="results-per-page">
+        <span>Résultats par page:</span>
+        <div class="page-size-control-group">
+          <p-button
+            icon="pi pi-minus"
+            (onClick)="decreasePageSize()"
+            [disabled]="pageSize <= 10"
+            styleClass="p-button-sm"
+          ></p-button>
+          
+          <p-inputNumber
+            [(ngModel)]="pageSize"
+            [showButtons]="false"
+            [readonly]="true"
+            [min]="10"
+            [max]="50"
+            [step]="10"
+          ></p-inputNumber>
+          
+          <p-button
+            icon="pi pi-plus"
+            (onClick)="increasePageSize()"
+            [disabled]="pageSize >= 50"
+            styleClass="p-button-sm"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-container px-4">
+      <div
+        *ngFor="let result of results; trackBy: trackBySiren"
+        class="result-card"
+      >
+        <div class="result-content">
+          <p class="result-title">
+            {{ result.uniteLegale?.denominationUniteLegale }}
+          </p>
+          <p class="result-siren">{{ result.siren }}</p>
+          <p class="result-siren">{{ result.nic }}</p>
+          <p class="result-siren">
+            {{ result.adresseEtablissement.typeVoieEtablissement }}
+            {{ result.adresseEtablissement.libelleVoieEtablissement }}
+            {{ result.adresseEtablissement.codePostalEtablissement }}
+            {{ result.adresseEtablissement.libelleCommuneEtablissement}}
+          </p>
+
+        </div>
+        <a [routerLink]="['/details', result.siren]" class="details-button" target="_blank">
+          <i class="fas fa-eye"></i> Voir le Détail
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="showPagination" class="pagination">
+      <p-button
+        icon="pi pi-angle-double-left"
+        (onClick)="goToFirstPage()" 
+        [disabled]="currentPage === 1"
+        styleClass="p-button-sm"
+      ></p-button>
+      
+      <p-button
+        icon="pi pi-angle-left"
+        (onClick)="goToPreviousPage()"
+        [disabled]="currentPage === 1"
+        styleClass="p-button-sm"
+      ></p-button>
+
+      <span>Page {{ currentPage }} sur {{ totalPages }}</span>
+
+      <p-button
+        icon="pi pi-angle-right"
+        (onClick)="goToNextPage()"
+        [disabled]="currentPage === totalPages"
+        styleClass="p-button-sm"
+      ></p-button>
+
+      <p-button
+        icon="pi pi-angle-double-right"
+        (onClick)="goToLastPage()"
+        [disabled]="currentPage === totalPages"
+        styleClass="p-button-sm"
+      ></p-button>
+    </div>
+    
+  </ng-container>
+</div>

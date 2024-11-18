@@ -1,0 +1,81 @@
+header {
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #1d1d1d;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .title {
+    font-size: 2.8rem;
+    margin: auto;
+    cursor: pointer;
+    justify-content: center;
+    strong {
+      color: #fff;
+    }
+
+    i {
+      color: #7f9e0f;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .auth-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px; // Augmentation de l'espacement entre les boutons
+
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; // Assure un alignement vertical correct
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      min-width: 80px; // Assure une largeur minimale pour le texte
+      height: 70px; // Hauteur fixe pour tous les boutons
+
+      i {
+        font-size: 1.5rem; // Légère augmentation de la taille de l'icône
+        color: #7f9e0f;
+        margin-bottom: 5px; // Espace entre l'icône et le texte
+      }
+
+      .button-text {
+        font-size: 0.9rem; // Légère augmentation de la taille du texte
+        margin: 0;
+        text-align: center;
+        width: 100%; // Assure que le texte prend toute la largeur du bouton
+        white-space: nowrap; // Empêche le texte de passer à la ligne
+        overflow: hidden;
+        text-overflow: ellipsis; // Ajoute des points de suspension si le texte est trop long
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #7f9e0f;
+}

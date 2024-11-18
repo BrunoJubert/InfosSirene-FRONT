@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Jost', sans-serif;
+}   
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .details {
+        display: block; // Assurez-vous que ce qui doit être imprimé est visible
+    }
+
+    // Cacher tout ce qui ne doit pas être imprimé
+    .no-print {
+        display: none !important;
+    }
+}

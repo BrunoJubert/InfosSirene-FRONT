@@ -1,0 +1,21 @@
+<div class="details">
+    <div class="header">
+        <h2>Détails de l'entreprise</h2>
+        <div *ngIf="isLoggedIn" class="no-print button-container">
+            <button pButton type="button" (click)="saveSearch()" class="p-button-success custom-button" pTooltip="Enregistrer" tooltipPosition="top">
+                <i class="pi pi-save"></i>
+            </button>
+            <button pButton type="button" (click)="printDetails()" class="p-button-success custom-button" pTooltip="Imprimer" tooltipPosition="top">
+                <i class="pi pi-print"></i>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="company">
+        <p><strong>Nom :</strong> {{ company.denominationUniteLegale }}</p>
+        <p><strong>SIREN :</strong> {{ company.siren }}</p>
+        <p><strong>Adresse :</strong> {{ company.adresse }}</p>
+        <p><strong>Description :</strong> {{ company.description }}</p>
+        <!-- Ajoutez d'autres détails ici -->
+    </div>
+</div>

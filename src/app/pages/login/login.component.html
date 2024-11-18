@@ -1,0 +1,96 @@
+<div id="login">
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true" />
+
+    <div class="login">
+      <form>
+        <label
+          for="chk"
+          aria-hidden="true"
+          class="title-block flex flex-column"
+        >
+          <span class="main-label">Connexion</span>
+        </label>
+        <input
+          [(ngModel)]="userEmail"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required=""
+        />
+        <input
+          [(ngModel)]="password"
+          type="password"
+          name="pswd"
+          placeholder="Password"
+          required=""
+        />
+        <button (click)="onLogin()" [disabled]="isLoading">
+  {{ isLoading ? 'Connexion en cours...' : 'Se Connecter' }}
+  <i class="pi pi-sign-in ml-3" *ngIf="!isLoading"></i>
+  <i class="pi pi-spinner pi-spin ml-3" *ngIf="isLoading"></i>
+</button>
+        <label for="chk" class="sub-label text-sm text-blue-600"
+          >Créer un compte</label
+        >
+      </form>
+    </div>
+
+    <div class="signup">
+      <form>
+        <label
+          for="chk"
+          aria-hidden="true"
+          class="title-block flex flex-column"
+        >
+          <span class="main-label">Inscription</span>
+        </label>
+        <input
+          [(ngModel)]="form.firstName"
+          type="text"
+          name="firstName"
+          placeholder="Prénom"
+          required=""
+        />
+        <input
+          [(ngModel)]="form.lastName"
+          type="text"
+          name="lastName"
+          placeholder="Nom"
+          required=""
+        />
+        <input
+          [(ngModel)]="form.email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required=""
+        />
+        <input
+          [(ngModel)]="form.password"
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          required=""
+        />
+        <input
+          [(ngModel)]="form.confirmPassword"
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirmer mot de passe"
+          required=""
+        />
+        <button (click)="validate()" [disabled]="isLoading">
+  {{ isLoading ? 'Inscription en cours...' : 'S\'inscrire' }}
+  <i class="pi pi-check ml-3" *ngIf="!isLoading"></i>
+  <i class="pi pi-spinner pi-spin ml-3" *ngIf="isLoading"></i>
+</button>
+        <label for="chk" class="sub-label text-sm text-blue-600"
+          >Déjà un compte ?</label
+        >
+      </form>
+    </div>
+  </div>
+</div>
+
+<p-toast [life]="10000" />

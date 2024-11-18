@@ -1,0 +1,44 @@
+.header {
+    display: flex; /* Utilisez flexbox pour aligner le titre et les boutons */
+    justify-content: space-between; /* Espace entre le titre et les boutons */
+    align-items: center; /* Alignez verticalement le titre et les boutons */
+    padding: 0 20px; /* Ajoutez de l'espace autour du header */
+    margin-right: 20px;
+}
+
+.button-container {
+    display: flex; /* Utilisez flexbox pour aligner les boutons */
+    gap: 20px; /* Espace entre les boutons */
+}
+
+.custom-button {
+    background-color: #7f9e0f; /* Couleur verte */
+    border: none; /* Supprimez la bordure par défaut */
+    color: white; /* Couleur du texte */
+    border-radius: 5px; /* Ajoutez un léger arrondi aux coins */
+    padding: 10px;
+}
+
+.custom-button:hover {
+    background-color: darken(#7f9e0f, 10%); /* Assombrir la couleur au survol */
+    cursor: pointer;
+}
+
+
+::ng-deep .p-tooltip {
+    color: white; /* Couleur du texte */
+    border-radius: 5px; /* Arrondi des coins */
+    padding: 5px; /* Espacement interne */
+}
+
+::ng-deep .p-tooltip .p-tooltip-arrow {
+    background-color: #7f9e0f; /* Couleur de la flèche du tooltip */
+}
+
+
+@media print {
+    /* Cacher également les tooltips */
+    ::ng-deep .p-tooltip {
+        display: none !important; /* Cachez les tooltips lors de l'impression */
+    }
+}

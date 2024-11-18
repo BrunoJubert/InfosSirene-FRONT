@@ -1,0 +1,38 @@
+<header class="header-container no-print">
+  <nav class="nav-container">
+    <div class="title-container">
+      <h1 class="title">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <a (click)="navigateTo('home')"> <strong>Infos </strong>SIRENE </a>
+      </h1>
+    </div>
+
+    <div class="auth-container">
+      <button (click)="navigateTo('home')">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <p class="button-text">Recherche</p>
+      </button>
+      <button (click)="navigateTo('contact')">
+        <i class="fa-regular fa-envelope"></i>
+        <p class="button-text">Contact</p>
+      </button>
+      @if (_auth.isConnected) {
+        <button (click)="navigateTo('profile')">
+          <i class="fa-regular fa-circle-user"></i>
+          <p class="button-text">{{_auth.userFirstName}}</p>
+        </button>
+      <button (click)="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <p class="button-text">Deconnexion</p>
+      </button>
+      
+      } @else {
+      <button (click)="navigateTo('login')" href="#login">
+        <i class="fa-regular fa-circle-user"></i>
+        <p class="button-text">Connexion</p>
+      </button>
+      }
+    </div>
+  </nav>
+</header>
+

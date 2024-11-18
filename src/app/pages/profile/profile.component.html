@@ -1,0 +1,24 @@
+<h1 class="text-center">Bienvenue {{userFirstName}}</h1>
+
+
+<div id="profile">
+    <div class="main">  	
+      <input type="checkbox" id="chk" aria-hidden="true">    
+        <div class="signup">
+          <form>
+            <label for="chk" aria-hidden="true" class="text-3xl">Mes informations</label>
+            <input [(ngModel)]="form.firstName" type="text" name="firstName" placeholder="Prénom" required="">
+            <input [(ngModel)]="form.lastName" type="text" name="lastName" placeholder="Nom" required="">
+            <input [(ngModel)]="form.email" type="email" name="email" placeholder="Email" required="">
+            <input [(ngModel)]="form.password" type="password" name="password" placeholder="Mot de passe" required="">
+            <input [(ngModel)]="form.confirmPassword" type="password" name="confirmPassword" placeholder="Confirmer mot de passe" required="">
+            <button (click)="updateProfile()">
+              Mettre à jour
+              <i class="pi pi-check ml-3"></i>
+            </button>
+          </form>
+        </div>
+    </div>
+  </div>
+  
+<p-toast [life]="10000" />

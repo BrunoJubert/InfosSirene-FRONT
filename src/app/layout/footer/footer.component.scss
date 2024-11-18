@@ -1,0 +1,37 @@
+#footer { 
+	background-color: #1d1d1d;
+  
+	footer {
+	  padding: 20px 0; // Ajoutez du padding en haut et en bas pour augmenter la hauteur
+	}
+  
+	.list_footer {
+	  display: flex;
+	  justify-content: center;
+	  flex-grow: 1;
+	  padding: 0; // Supprime le padding par défaut des listes
+	  margin: 0; // Supprime la marge par défaut des listes
+	  
+	  li {
+		list-style-type: none; // Supprime les puces
+		margin: 0 15px; // Ajoute de l'espace horizontal entre les éléments
+  
+		a {
+		  color: #fff; // Couleur des liens
+		  text-decoration: none; // Supprime le soulignement des liens
+		  transition: color 0.3s ease; // Transition douce pour le survol
+  
+		  &:hover {
+			color: #7f9e0f; // Couleur au survol
+			cursor: pointer;
+		  }
+		}
+	  }
+	}
+  }
+  
+  .copyright {
+	color: darken(#ccc, 20%);
+	margin-top: 15px; // Ajoute un peu d'espace au-dessus du copyright
+  }
+  
